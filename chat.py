@@ -41,5 +41,11 @@ if __name__ == "__main__":
         if r["sources"]:
             print(f"  근거 섹션 {len(r['sources'])}개: {' / '.join(r['sources'][:4])}"
                   + (" …" if len(r["sources"]) > 4 else ""))
+        for i, c in enumerate(r["checks"]):
+            label = "숫자 검증" if i == 0 else "다시 쓴 뒤 검증"
+            print(f"  {label}: " + ("통과" if c["ok"] else f"실패 — 근거에 없는 {', '.join(c['unsupported'])}")
+                  + (f" (확인한 숫자 {len(c['tokens'])}개)" if c["ok"] and c["tokens"] else ""))
+        if r["escalated"]:
+            print(f"  → 운영진 이관: {r['escalated']}")
         print(f"\n챗봇> {r['answer']}\n")
     print("끝.")
