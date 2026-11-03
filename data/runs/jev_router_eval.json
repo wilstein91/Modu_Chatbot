@@ -1,0 +1,434 @@
+{
+  "Q003": {
+    "category": "attendance",
+    "category_probs": {
+      "attendance": 0.81,
+      "allowance": 0.19,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.05
+  },
+  "Q004": {
+    "category": "attendance",
+    "category_probs": {
+      "attendance": 0.99,
+      "allowance": 0.01,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.64,
+    "personal_record": 0.1
+  },
+  "Q005": {
+    "category": "attendance",
+    "category_probs": {
+      "attendance": 1.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.97,
+    "personal_record": 0.02
+  },
+  "Q006": {
+    "category": "attendance",
+    "category_probs": {
+      "attendance": 0.99,
+      "allowance": 0.0,
+      "dismissal": 0.01,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.97,
+    "personal_record": 0.03
+  },
+  "Q007": {
+    "category": "attendance",
+    "category_probs": {
+      "attendance": 1.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.6,
+    "personal_record": 0.03
+  },
+  "Q008": {
+    "category": "attendance",
+    "category_probs": {
+      "attendance": 0.98,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.02
+    },
+    "in_scope": 0.94,
+    "personal_record": 0.11
+  },
+  "Q011": {
+    "category": "allowance",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 1.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.96,
+    "personal_record": 0.03
+  },
+  "Q012": {
+    "category": "allowance",
+    "category_probs": {
+      "attendance": 0.11,
+      "allowance": 0.89,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.03
+  },
+  "Q013": {
+    "category": "allowance",
+    "category_probs": {
+      "attendance": 0.12,
+      "allowance": 0.87,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.01
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.09
+  },
+  "Q014": {
+    "category": "allowance",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.97,
+      "dismissal": 0.03,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.95,
+    "personal_record": 0.04
+  },
+  "Q015": {
+    "category": "allowance",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 1.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.94,
+    "personal_record": 0.04
+  },
+  "Q016": {
+    "category": "allowance",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 1.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.6,
+    "personal_record": 0.05
+  },
+  "Q019": {
+    "category": "dismissal",
+    "category_probs": {
+      "attendance": 0.29,
+      "allowance": 0.0,
+      "dismissal": 0.71,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.02
+  },
+  "Q020": {
+    "category": "dismissal",
+    "category_probs": {
+      "attendance": 0.06,
+      "allowance": 0.0,
+      "dismissal": 0.94,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.03
+  },
+  "Q021": {
+    "category": "dismissal",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 1.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.03
+  },
+  "Q022": {
+    "category": "dismissal",
+    "category_probs": {
+      "attendance": 0.42,
+      "allowance": 0.0,
+      "dismissal": 0.58,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.97,
+    "personal_record": 0.03
+  },
+  "Q023": {
+    "category": "learning",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.01,
+      "learning": 0.99,
+      "schedule": 0.0
+    },
+    "in_scope": 0.39,
+    "personal_record": 0.02
+  },
+  "Q024": {
+    "category": "dismissal",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 1.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.04
+  },
+  "Q027": {
+    "category": "learning",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 1.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.94,
+    "personal_record": 0.02
+  },
+  "Q028": {
+    "category": "learning",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 1.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.95,
+    "personal_record": 0.02
+  },
+  "Q029": {
+    "category": "learning",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.09,
+      "learning": 0.91,
+      "schedule": 0.0
+    },
+    "in_scope": 0.94,
+    "personal_record": 0.03
+  },
+  "Q030": {
+    "category": "learning",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 1.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.95,
+    "personal_record": 0.11
+  },
+  "Q031": {
+    "category": "learning",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 1.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.93,
+    "personal_record": 0.12
+  },
+  "Q032": {
+    "category": "learning",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 0.78,
+      "schedule": 0.22
+    },
+    "in_scope": 0.78,
+    "personal_record": 0.03
+  },
+  "Q035": {
+    "category": "schedule",
+    "category_probs": {
+      "attendance": 0.16,
+      "allowance": 0.0,
+      "dismissal": 0.03,
+      "learning": 0.0,
+      "schedule": 0.81
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.02
+  },
+  "Q036": {
+    "category": "schedule",
+    "category_probs": {
+      "attendance": 0.13,
+      "allowance": 0.0,
+      "dismissal": 0.02,
+      "learning": 0.0,
+      "schedule": 0.85
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.02
+  },
+  "Q037": {
+    "category": "schedule",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 1.0
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.03
+  },
+  "Q038": {
+    "category": "schedule",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 1.0
+    },
+    "in_scope": 0.75,
+    "personal_record": 0.02
+  },
+  "Q039": {
+    "category": "schedule",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 0.04,
+      "schedule": 0.96
+    },
+    "in_scope": 0.84,
+    "personal_record": 0.02
+  },
+  "Q040": {
+    "category": "schedule",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 1.0
+    },
+    "in_scope": 0.93,
+    "personal_record": 0.09
+  },
+  "Q043": {
+    "category": "allowance",
+    "category_probs": {
+      "attendance": 0.01,
+      "allowance": 0.99,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.96,
+    "personal_record": 0.98
+  },
+  "Q044": {
+    "category": "attendance",
+    "category_probs": {
+      "attendance": 1.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 0.0
+    },
+    "in_scope": 0.92,
+    "personal_record": 0.99
+  },
+  "Q045": {
+    "category": "schedule",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.0,
+      "dismissal": 0.0,
+      "learning": 0.0,
+      "schedule": 1.0
+    },
+    "in_scope": 0.98,
+    "personal_record": 0.05
+  },
+  "Q046": {
+    "category": "dismissal",
+    "category_probs": {
+      "attendance": 0.03,
+      "allowance": 0.11,
+      "dismissal": 0.73,
+      "learning": 0.01,
+      "schedule": 0.12
+    },
+    "in_scope": 0.95,
+    "personal_record": 0.03
+  },
+  "Q047": {
+    "category": "schedule",
+    "category_probs": {
+      "attendance": 0.02,
+      "allowance": 0.01,
+      "dismissal": 0.01,
+      "learning": 0.46,
+      "schedule": 0.5
+    },
+    "in_scope": 0.01,
+    "personal_record": 0.02
+  },
+  "Q048": {
+    "category": "learning",
+    "category_probs": {
+      "attendance": 0.0,
+      "allowance": 0.19,
+      "dismissal": 0.02,
+      "learning": 0.7,
+      "schedule": 0.09
+    },
+    "in_scope": 0.02,
+    "personal_record": 0.02
+  }
+}
