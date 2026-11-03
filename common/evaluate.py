@@ -87,12 +87,7 @@ def print_report(rep):
     print(f"  분류 정확도   {rep['accuracy']:.3f}   macro F1 {rep['macro_f1']:.3f}")
     print(f"  도구 호출 적절성 {rep['tool_score']:.3f}")
     print(f"  답변 적절성     {rep['answer_score']:.3f}")
-    labels = rep["confusion"]["labels"]
-    short = [l[:6] for l in labels]
-    print("\n혼동 행렬 (행 = 정답, 열 = 예측)")
-    print(" " * 14 + " ".join(f"{s:>6}" for s in short))
-    for lab, row in zip(labels, rep["confusion"]["matrix"]):
-        print(f"{lab:>13} " + " ".join(f"{v:>6}" for v in row))
+    print_confusion(rep)
     fails = [r for r in rep["rows"] if not (r["tool"] and r["score"])]
     if fails:
         print(f"\n틀린 문항 {len(fails)}개")
@@ -105,6 +100,15 @@ def print_report(rep):
             if r["forbidden"]:
                 why.append("금지 표현 " + ", ".join(r["forbidden"]))
             print(f"  {r['id']} ({r['category']}): " + "; ".join(why))
+
+
+def print_confusion(rep):
+    labels = rep["confusion"]["labels"]
+    short = [l[:6] for l in labels]
+    print("\n혼동 행렬 (행 = 정답, 열 = 예측)")
+    print(" " * 14 + " ".join(f"{s:>6}" for s in short))
+    for lab, row in zip(labels, rep["confusion"]["matrix"]):
+        print(f"{lab:>13} " + " ".join(f"{v:>6}" for v in row))
 
 
 # ---------- 채점기 자체 검사 ----------
