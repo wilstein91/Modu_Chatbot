@@ -64,12 +64,12 @@ MAX_REWRITES = 1  # 검증 실패 시 다시 쓰기 횟수 (현준님 결정: 1�
 
 def escalate(state):
     """관문 또는 검증에서 걸린 질문: 답을 내보내지 않고 운영진에게 넘긴다."""
-    reason = "검증 실패: 근거에 없는 숫자" if state.get("checks") else "분류 확신도 낮음"
+    reason = "검증 실패: 근거와 맞지 않는 내용" if state.get("checks") else "판정 단계에서 넘김"
     call = {"name": "escalate_to_staff", "args": {"reason": reason}, "id": f"esc{len(state['messages'])}"}
     result = escalate_to_staff.invoke(call["args"])
     text = ("답변을 확인하는 과정에서 문서와 맞지 않는 부분이 있어 운영진에게 넘겼어요. 운영매니저님께 확인 부탁드려요."
             if state.get("checks") else
-            "질문 내용을 정확히 판단하기 어려워 운영진에게 넘겼어요. 운영매니저님께 확인 부탁드려요.")
+            "안내 문서만으로 답하기 어려운 질문이라 운영진에게 넘겼어요. 운영매니저님께 확인 부탁드려요.")
     return {"escalated": reason, "messages": [
         AIMessage(content="", tool_calls=[call]),
         ToolMessage(content=result, tool_call_id=call["id"]),
@@ -112,15 +112,16 @@ def agent(state):
     return {"messages": [_llm_auto.invoke(msgs)]}
 
 
-def build():
+def build(classify=classify, after_classify=after_classify, verify=verify):
+    """그래프 조립. track_jev는 판정(classify·after_classify)과 검증(verify) 노드만 바꿔 끼운다."""
     g = StateGraph(State)
     g.add_node("classify", classify)
     g.add_node("escalate", escalate)
     g.add_node("agent", agent)
     g.add_node("tools", ToolNode(ALL_TOOLS))
+    g.add_node("verify", verify)
     g.add_edge(START, "classify")
     g.add_conditional_edges("classify", after_classify, ["escalate", "agent"])
-    g.add_node("verify", verify)
     g.add_edge("escalate", END)
     g.add_conditional_edges("agent", tools_condition, {"tools": "tools", END: "verify"})
     g.add_edge("tools", "agent")
@@ -135,6 +136,7 @@ def summarize(state):
     return {
         "category": state["category"],
         "confidence": state["confidence"],
+        "route_reason": state.get("route_reason", ""),
         "tools": called_tools(state["messages"]),
         "sources": list(dict.fromkeys(sources)),
         "checks": state.get("checks", []),
@@ -146,9 +148,13 @@ def summarize(state):
 GRAPH = None
 
 
+def run(graph, question):
+    state = graph.invoke({"question": question, "messages": [], "checks": [], "escalated": ""},
+                         {"recursion_limit": RECURSION_LIMIT})
+    return summarize(state)
+
+
 def ask(question):
     global GRAPH
     GRAPH = GRAPH or build()
-    state = GRAPH.invoke({"question": question, "messages": [], "checks": [], "escalated": ""},
-                         {"recursion_limit": RECURSION_LIMIT})
-    return summarize(state)
+    return run(GRAPH, question)

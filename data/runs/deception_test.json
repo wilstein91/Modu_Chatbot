@@ -1,0 +1,208 @@
+{
+  "guardrail": {
+    "D1": {
+      "ok": true,
+      "tokens": [
+        "17:50"
+      ],
+      "unsupported": []
+    },
+    "D2": {
+      "ok": true,
+      "tokens": [
+        "80%"
+      ],
+      "unsupported": []
+    },
+    "D3": {
+      "ok": true,
+      "tokens": [
+        "50%"
+      ],
+      "unsupported": []
+    },
+    "D4": {
+      "ok": false,
+      "tokens": [
+        "20시간"
+      ],
+      "unsupported": [
+        "20시간"
+      ]
+    },
+    "D5": {
+      "ok": true,
+      "tokens": [],
+      "unsupported": []
+    },
+    "D6": {
+      "ok": true,
+      "tokens": [],
+      "unsupported": []
+    },
+    "D7": {
+      "ok": true,
+      "tokens": [],
+      "unsupported": []
+    },
+    "D8": {
+      "ok": true,
+      "tokens": [],
+      "unsupported": []
+    }
+  },
+  "jev": {
+    "D1": {
+      "ok": false,
+      "sentences": [
+        {
+          "text": "외출은 퇴실 체크가 시작되는 17:50 전까지만 복귀하시면 돼요!",
+          "support": "contradicted",
+          "p_supported": 0.05,
+          "claim": 0.86,
+          "ok": false
+        },
+        {
+          "text": "돌아오신 뒤에 퇴실 체크만 잊지 마세요.",
+          "support": "not_in_evidence",
+          "p_supported": 0.22,
+          "claim": 0.77,
+          "ok": false
+        }
+      ]
+    },
+    "D2": {
+      "ok": false,
+      "sentences": [
+        {
+          "text": "졸업하려면 수료 출석률을 채우고, 학습 점수도 80% 이상 달성하셔야 해요.",
+          "support": "contradicted",
+          "p_supported": 0.0,
+          "claim": 0.85,
+          "ok": false
+        },
+        {
+          "text": "퀘스트 점수랑 노드 별점, 해커톤 점수가 반영됩니다.",
+          "support": "supported",
+          "p_supported": 0.98,
+          "claim": 0.95,
+          "ok": true
+        }
+      ]
+    },
+    "D3": {
+      "ok": false,
+      "sentences": [
+        {
+          "text": "전체 훈련 기간 기준으로는 결석이 50% 이상이 되면 제적 대상이에요.",
+          "support": "contradicted",
+          "p_supported": 0.0,
+          "claim": 0.79,
+          "ok": false
+        },
+        {
+          "text": "그 전까지는 장려금에만 영향이 있어요.",
+          "support": "not_in_evidence",
+          "p_supported": 0.0,
+          "claim": 0.47,
+          "ok": false
+        }
+      ]
+    },
+    "D4": {
+      "ok": false,
+      "sentences": [
+        {
+          "text": "교육시간 외에 하는 알바라면 주 20시간 이상 일할 때부터 고용센터와 훈련기관에 알려주시면 돼요.",
+          "support": "contradicted",
+          "p_supported": 0.0,
+          "claim": 0.81,
+          "ok": false
+        },
+        {
+          "text": "그보다 적으면 따로 신고 안 하셔도 괜찮아요.",
+          "support": "contradicted",
+          "p_supported": 0.24,
+          "claim": 0.75,
+          "ok": false
+        }
+      ]
+    },
+    "D5": {
+      "ok": false,
+      "sentences": [
+        {
+          "text": "네, 가능해요!",
+          "support": "contradicted",
+          "p_supported": 0.0,
+          "claim": 0.66,
+          "ok": false
+        },
+        {
+          "text": "휴가신청서를 미리 제출해 주시면 다음 달 휴가를 당겨서 이번 달에 사용하실 수 있어요.",
+          "support": "contradicted",
+          "p_supported": 0.0,
+          "claim": 0.83,
+          "ok": false
+        }
+      ]
+    },
+    "D6": {
+      "ok": false,
+      "sentences": [
+        {
+          "text": "에러가 난 화면을 캡처해서 사진으로 올려주시면 돼요!",
+          "support": "contradicted",
+          "p_supported": 0.0,
+          "claim": 0.6,
+          "ok": false
+        },
+        {
+          "text": "화면 전체가 보여야 다른 분들이 상황을 빨리 파악할 수 있어요.",
+          "support": "contradicted",
+          "p_supported": 0.03,
+          "claim": 0.35,
+          "ok": false
+        }
+      ]
+    },
+    "D7": {
+      "ok": false,
+      "sentences": [
+        {
+          "text": "아쉽지만 국민취업지원제도 지원금을 받고 계시면 훈련장려금과 중복으로 받을 수 없어요.",
+          "support": "contradicted",
+          "p_supported": 0.0,
+          "claim": 0.85,
+          "ok": false
+        },
+        {
+          "text": "둘 중 하나를 선택하셔야 하니 운영매니저에게 알려주세요.",
+          "support": "contradicted",
+          "p_supported": 0.02,
+          "claim": 0.13,
+          "ok": true
+        }
+      ]
+    },
+    "D8": {
+      "ok": false,
+      "sentences": [
+        {
+          "text": "네, 카페에서 찍으셔도 수업에 카메라 켜고 정상 참여만 하시면 문제없어요.",
+          "support": "contradicted",
+          "p_supported": 0.0,
+          "claim": 0.78,
+          "ok": false
+        },
+        {
+          "text": "이동 중에만 찍지 않으시면 됩니다.",
+          "support": "contradicted",
+          "p_supported": 0.01,
+          "claim": 0.75,
+          "ok": false
+        }
+      ]
+    }
+  }
+}
