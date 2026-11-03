@@ -1,0 +1,1351 @@
+[
+  {
+    "id": "Q001",
+    "split": "fewshot",
+    "question": "입실 QR 몇 시까지 찍어야 지각 안 돼요?",
+    "category": "attendance",
+    "expected_tools": [
+      "lookup_attendance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "10:10",
+        "10시 10분"
+      ],
+      [
+        "10:11",
+        "10시 11분"
+      ]
+    ],
+    "forbid": [
+      "10:01",
+      "10시 1분",
+      "10:05"
+    ],
+    "source": [
+      "00_메인_공지 > LMS · QR 찍는 시간",
+      "04_출결에_대하여 > ⭕ 정상 출석"
+    ],
+    "note": "입실은 10:10까지 정상 인정이라, '10시 넘으면 지각'이라는 상식형 오답을 막는다."
+  },
+  {
+    "id": "Q002",
+    "split": "fewshot",
+    "question": "공가 신청 어떻게 해요? 폼 링크 좀 주세요",
+    "category": "attendance",
+    "expected_tools": [
+      "lookup_attendance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "EWkJFEESCoBXgbR27"
+      ],
+      [
+        "hf1qEAGA6B1hNTTg6"
+      ]
+    ],
+    "forbid": [
+      "AMcwZYrYEcQ1mkJP9",
+      "RxTDy1yL2PfaFbA86",
+      "R8ucZ232GNjcNktb7",
+      "+1일"
+    ],
+    "source": [
+      "00_메인_공지 > 출석부 — 반드시 사전에 운영진에게 알려주세요",
+      "CONFLICTS #1~3"
+    ],
+    "note": "신청 폼과 증빙 폼을 둘 다 안내해야 하며, 04·05에 남은 틀린 폼 링크와 '+1일'이 함정이다."
+  },
+  {
+    "id": "Q003",
+    "split": "eval",
+    "question": "병원 가느라 조퇴하면 장려금 깎여요?",
+    "category": "attendance",
+    "expected_tools": [
+      "lookup_attendance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "공결",
+        "출석 인정",
+        "출석인정"
+      ],
+      [
+        "진료확인서",
+        "통원확인서",
+        "처방전",
+        "진단서"
+      ]
+    ],
+    "forbid": [
+      "영수증으로 대체",
+      "조퇴는 공결이 안",
+      "조퇴는 인정되지 않"
+    ],
+    "source": [
+      "05_공가_및_휴가에_대하여 > [하위 페이지] 질병 / 입원",
+      "04_출결에_대하여 > [하위 페이지] 훈련 장려금 지급/확인"
+    ],
+    "note": "MAPPING 경계 예시로 핵심은 05 질병 '조퇴도 공결'이고, 장려금 기준(출석 인정 일수)까지 답하려면 두 문서가 필요하다."
+  },
+  {
+    "id": "Q004",
+    "split": "eval",
+    "question": "진료비 영수증 내면 병가 공가 처리 되는 거죠?",
+    "category": "attendance",
+    "expected_tools": [
+      "lookup_attendance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "불가",
+        "안 됩니다",
+        "안됩니다",
+        "인정되지 않",
+        "처리되지 않"
+      ],
+      [
+        "진료확인서",
+        "통원확인서",
+        "처방전",
+        "진단서",
+        "입/퇴원확인서"
+      ]
+    ],
+    "forbid": [
+      "영수증도 가능",
+      "영수증도 됩니다",
+      "영수증으로 충분",
+      "영수증으로 대체"
+    ],
+    "source": [
+      "05_공가_및_휴가에_대하여 > [하위 페이지] 질병 / 입원"
+    ],
+    "note": "'영수증 제출 시 처리 불가'는 직관과 반대라 영수증이면 된다는 오답이 나오기 쉽다."
+  },
+  {
+    "id": "Q005",
+    "split": "eval",
+    "question": "공가 신청은 언제까지 해야 돼요? 당일에 갑자기 생기면요?",
+    "category": "attendance",
+    "expected_tools": [
+      "lookup_attendance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "전일",
+        "하루 전",
+        "전날"
+      ],
+      [
+        "당일"
+      ]
+    ],
+    "forbid": [
+      "+1일",
+      "다음날까지",
+      "익일까지",
+      "발생일 다음 날"
+    ],
+    "source": [
+      "00_메인_공지 > 출석부 — 반드시 사전에 운영진에게 알려주세요",
+      "CONFLICTS #3"
+    ],
+    "note": "확정 기한은 '전일까지, 불가피하면 당일'이며 04·05 원문의 '+1일'을 말하면 오답이다."
+  },
+  {
+    "id": "Q006",
+    "split": "eval",
+    "question": "지각 몇 번 하면 결석 1번으로 쳐요?",
+    "category": "attendance",
+    "expected_tools": [
+      "lookup_attendance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "3회",
+        "3번",
+        "세 번"
+      ],
+      [
+        "조퇴",
+        "외출"
+      ]
+    ],
+    "forbid": [
+      "5회",
+      "4회",
+      "5번",
+      "4번"
+    ],
+    "source": [
+      "04_출결에_대하여 > 👀 중요사항 한 눈에 보기"
+    ],
+    "note": "지각·조퇴·외출 합산 3회 누적이 결석 1회이며, 이 규칙은 04 중요사항에만 있다."
+  },
+  {
+    "id": "Q007",
+    "split": "eval",
+    "question": "예비군 훈련 가는 날 공가 증빙으로 뭐 내면 돼요?",
+    "category": "attendance",
+    "expected_tools": [
+      "lookup_attendance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "예비군 훈련 증명서"
+      ]
+    ],
+    "forbid": [
+      "참여확인증",
+      "AMcwZYrYEcQ1mkJP9",
+      "RxTDy1yL2PfaFbA86",
+      "R8ucZ232GNjcNktb7"
+    ],
+    "source": [
+      "05_공가_및_휴가에_대하여 > [하위 페이지] 예비군 / 민방위",
+      "CONFLICTS #5"
+    ],
+    "note": "04 원문은 '참여확인증'이지만 확정값은 05의 '예비군 훈련 증명서'다."
+  },
+  {
+    "id": "Q008",
+    "split": "eval",
+    "question": "이번 단위기간 휴가 벌써 썼는데 다음 달 휴가 당겨서 써도 돼요?",
+    "category": "attendance",
+    "expected_tools": [
+      "lookup_attendance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "당겨쓰기 불가",
+        "불가",
+        "안 됩니다",
+        "안됩니다",
+        "쓸 수 없"
+      ],
+      [
+        "1일"
+      ]
+    ],
+    "forbid": [
+      "당겨쓰기 가능",
+      "당겨 쓸 수 있습니다",
+      "당겨쓸 수 있습니다",
+      "당겨 쓰셔도"
+    ],
+    "source": [
+      "05_공가_및_휴가에_대하여 > [하위 페이지] 휴가",
+      "CONFLICTS #6"
+    ],
+    "note": "휴가는 단위기간 내 1일이고 당겨쓰기 불가(05에만 있음)라, 연차처럼 당겨쓸 수 있다는 오답을 막는다."
+  },
+  {
+    "id": "Q009",
+    "split": "fewshot",
+    "question": "장려금 신청하면 보통 언제쯤 입금돼요?",
+    "category": "allowance",
+    "expected_tools": [
+      "lookup_allowance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "2~4주",
+        "2-4주",
+        "2주~4주"
+      ],
+      [
+        "확인완료",
+        "확인이 완료"
+      ]
+    ],
+    "forbid": [
+      "다음 달 10일",
+      "익월 10일",
+      "매월 10일"
+    ],
+    "source": [
+      "04_출결에_대하여 > [하위 페이지] 훈련 장려금 지급/확인"
+    ],
+    "note": "전원 '확인완료' 후 신청, 신청 후 2~4주라는 순서를 보여주는 예시다."
+  },
+  {
+    "id": "Q010",
+    "split": "fewshot",
+    "question": "저 휴학생인데 고용형태 관련해서 서류 뭐 내야 돼요?",
+    "category": "allowance",
+    "expected_tools": [
+      "lookup_allowance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "휴학계"
+      ]
+    ],
+    "forbid": [
+      "재학증명서",
+      "졸업증명서"
+    ],
+    "source": [
+      "06_수강_중_고용_형태_관련_안내 > 1. 최초 고용형태 관련 제출 서류"
+    ],
+    "note": "최초 고용형태별 제출 서류 표에서 휴학생은 휴학계이며, 재학증명서를 떠올리기 쉽다."
+  },
+  {
+    "id": "Q011",
+    "split": "eval",
+    "question": "훈련장려금 하루에 얼마씩 나와요?",
+    "category": "allowance",
+    "expected_tools": [
+      "lookup_allowance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "20,000원",
+        "2만원",
+        "2만 원",
+        "20000원"
+      ]
+    ],
+    "forbid": [
+      "15,800원",
+      "11,600원",
+      "316,000원",
+      "31만6천"
+    ],
+    "source": [
+      "04_출결에_대하여 > [하위 페이지] 훈련 장려금 지급/확인"
+    ],
+    "note": "2기 장려금은 1일 20,000원(기본+KDT 특별수당)이며, 일반 KDT 상식값(15,800원·316,000원)이 함정이다."
+  },
+  {
+    "id": "Q012",
+    "split": "eval",
+    "question": "출석 하루 하면 장려금 얼마 쌓이는 거임?",
+    "category": "allowance",
+    "expected_tools": [
+      "lookup_allowance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "20,000원",
+        "2만원",
+        "2만 원",
+        "20000원"
+      ]
+    ],
+    "forbid": [
+      "15,800원",
+      "11,600원",
+      "316,000원",
+      "31만6천"
+    ],
+    "source": [
+      "04_출결에_대하여 > [하위 페이지] 훈련 장려금 지급/확인"
+    ],
+    "note": "바로 앞 문항의 바꿔 말하기 쌍으로, 표현이 달라도 같은 금액을 답하는지 본다."
+  },
+  {
+    "id": "Q013",
+    "split": "eval",
+    "question": "이번 단위기간 22일 다 나오면 장려금 22일치 받는 거죠?",
+    "category": "allowance",
+    "expected_tools": [
+      "lookup_allowance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "20일"
+      ],
+      [
+        "최대",
+        "상한"
+      ]
+    ],
+    "forbid": [
+      "440,000",
+      "44만"
+    ],
+    "source": [
+      "04_출결에_대하여 > [하위 페이지] 훈련 장려금 지급/확인"
+    ],
+    "note": "최대 20일 상한이라 22일 출석해도 20일치이며, 출석일수만큼 준다는 직관이 오답이다."
+  },
+  {
+    "id": "Q014",
+    "split": "eval",
+    "question": "알바하는 거 신고 안 하면 제적돼요?",
+    "category": "allowance",
+    "expected_tools": [
+      "lookup_allowance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "환수"
+      ],
+      [
+        "제적"
+      ]
+    ],
+    "forbid": [
+      "상관없",
+      "문제없",
+      "신고 안 해도 됩"
+    ],
+    "source": [
+      "06_수강_중_고용_형태_관련_안내 > 3. 훈련 중 아르바이트 또는 프리랜서를 병행하는 경우"
+    ],
+    "note": "MAPPING 경계 예시로 '제적' 단어가 있어도 근거는 06(환수·제적 등 불이익)이라 allowance다."
+  },
+  {
+    "id": "Q015",
+    "split": "eval",
+    "question": "내일배움카드 만들 때 고용형태랑 지금 고용형태가 달라요ㅠ 개강하고 며칠 안에 알려야 돼요?",
+    "category": "allowance",
+    "expected_tools": [
+      "lookup_allowance",
+      "escalate_to_staff"
+    ],
+    "should_escalate": true,
+    "must": [
+      [
+        "운영진",
+        "운영매니저",
+        "매니저"
+      ]
+    ],
+    "forbid": [],
+    "source": [
+      "04_출결에_대하여 > [하위 페이지] 훈련 장려금 지급/확인",
+      "06_수강_중_고용_형태_관련_안내 > 2. 고용형태 변경",
+      "CONFLICTS #9"
+    ],
+    "note": "CONFLICTS #9 미확정(04 1주 vs 06 2주)이라 문서를 조회해 충돌을 확인한 뒤 운영진에게 넘기는 것이 정답이고 어느 기한도 단정하면 안 된다. (11/3 현준님: 두 값을 보여 주고 이관하면 정답 — 금지 목록 비움)"
+  },
+  {
+    "id": "Q016",
+    "split": "eval",
+    "question": "국민취업지원제도 지원금 받고 있는데 훈련장려금이랑 같이 받을 수 있어요?",
+    "category": "allowance",
+    "expected_tools": [
+      "lookup_allowance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "중복 수급 가능",
+        "중복 수급이 가능",
+        "같이 받을 수 있",
+        "함께 받을 수 있"
+      ]
+    ],
+    "forbid": [
+      "둘 중 하나만",
+      "국민취업지원제도 지원금은 중복 수급 불가"
+    ],
+    "source": [
+      "04_출결에_대하여 > [하위 페이지] 훈련 장려금 지급/확인"
+    ],
+    "note": "국민취업지원제도는 중복 수급 가능(지자체 지원금은 불가)이라 '정부 지원금은 중복 불가'라는 상식이 함정이다."
+  },
+  {
+    "id": "Q017",
+    "split": "fewshot",
+    "question": "운영진 지시사항 계속 안 따르면 어떻게 돼요?",
+    "category": "dismissal",
+    "expected_tools": [
+      "lookup_dismissal"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "수강 태도 불량",
+        "옐로",
+        "경고"
+      ],
+      [
+        "제적"
+      ]
+    ],
+    "forbid": [
+      "즉시 제적",
+      "바로 제적",
+      "무조건 제적",
+      "제적됩니다"
+    ],
+    "source": [
+      "07_제적_가이드 > 3. 훈련생 경고 사유 : 옐로 카드"
+    ],
+    "note": "지시 반복 불이행은 옐로카드(수강 태도 불량)이고 누적 시 제적 절차라, 즉시 제적이라는 과장을 막는다."
+  },
+  {
+    "id": "Q018",
+    "split": "fewshot",
+    "question": "출근길 지하철에서 QR 찍어도 돼요?",
+    "category": "dismissal",
+    "expected_tools": [
+      "lookup_dismissal"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "자택",
+        "사전승인",
+        "지정된 훈련 장소"
+      ],
+      [
+        "경고",
+        "옐로",
+        "부정 출석"
+      ]
+    ],
+    "forbid": [
+      "찍어도 됩니다",
+      "상관없",
+      "즉시 제적",
+      "바로 제적",
+      "무조건 제적",
+      "제적됩니다"
+    ],
+    "source": [
+      "07_제적_가이드 > 3. 훈련생 경고 사유 : 옐로 카드"
+    ],
+    "note": "운송수단 탑승 중 QR은 부정 출석(옐로카드) 예시로 문서에 직접 나온다."
+  },
+  {
+    "id": "Q019",
+    "split": "eval",
+    "question": "결석 몇 번 하면 제적이에요? 지각도 결석으로 쳐요?",
+    "category": "dismissal",
+    "expected_tools": [
+      "lookup_dismissal",
+      "lookup_attendance"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "20%",
+        "20퍼센트"
+      ],
+      [
+        "50%",
+        "50퍼센트"
+      ],
+      [
+        "3회",
+        "3번",
+        "세 번"
+      ]
+    ],
+    "forbid": [
+      "10%",
+      "30%"
+    ],
+    "source": [
+      "07_제적_가이드 > 2. 훈련생 제적 사유 : 레드 카드",
+      "04_출결에_대하여 > 👀 중요사항 한 눈에 보기"
+    ],
+    "note": "제적 기준(07)과 지각 3회=결석 1회(04 중요사항에만 있음)를 함께 써야 해서 두 도구가 필요하다."
+  },
+  {
+    "id": "Q020",
+    "split": "eval",
+    "question": "결석 많이 하면 어떻게 돼요?",
+    "category": "dismissal",
+    "expected_tools": [
+      "lookup_dismissal"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "제적"
+      ],
+      [
+        "20%",
+        "20퍼센트"
+      ],
+      [
+        "50%",
+        "50퍼센트"
+      ]
+    ],
+    "forbid": [
+      "10%",
+      "30%"
+    ],
+    "source": [
+      "07_제적_가이드 > 2. 훈련생 제적 사유 : 레드 카드",
+      "07_제적_가이드 > 1. 훈련생 제적 조치 근거"
+    ],
+    "note": "MAPPING 경계 예시로, 앞 문항과 같은 제적 기준을 묻는 바꿔 말하기 쌍이다."
+  },
+  {
+    "id": "Q021",
+    "split": "eval",
+    "question": "경고 몇 번 받으면 제적돼요?",
+    "category": "dismissal",
+    "expected_tools": [
+      "lookup_dismissal"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "누적"
+      ],
+      [
+        "서면 경고",
+        "서면경고"
+      ]
+    ],
+    "forbid": [
+      "3회",
+      "3번",
+      "세 번",
+      "경고 2회"
+    ],
+    "source": [
+      "07_제적_가이드 > 3. 훈련생 경고 사유 : 옐로 카드",
+      "08_훈련_참여_규칙 > 참여 규칙의 적용"
+    ],
+    "note": "문서에는 경고 횟수가 없고 '누적·구두 경고→서면 경고→제적'뿐이라 '경고 3회'라는 통념이 오답이다."
+  },
+  {
+    "id": "Q022",
+    "split": "eval",
+    "question": "운영진한테 말 안 하고 25분 정도 자리 비우면 경고 받아요?",
+    "category": "dismissal",
+    "expected_tools": [
+      "lookup_dismissal"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "20분"
+      ],
+      [
+        "무단 외출",
+        "부정 훈련",
+        "부정훈련"
+      ]
+    ],
+    "forbid": [
+      "30분 이상",
+      "1시간 이상",
+      "즉시 제적",
+      "바로 제적",
+      "무조건 제적",
+      "제적됩니다"
+    ],
+    "source": [
+      "07_제적_가이드 > 3. 훈련생 경고 사유 : 옐로 카드",
+      "04_출결에_대하여 > ⚡ 외출"
+    ],
+    "note": "경고 여부(결과)를 묻기에 07 옐로카드 '20분 이상 무단 외출'이 핵심이며, 30분·1시간 기준 오답을 막는다. (11/3 현준님: 위반 즉시 무조건 제적이 아니므로 \"제적될 수 있어요\"로 순화, 단정 표현 금지)"
+  },
+  {
+    "id": "Q023",
+    "split": "eval",
+    "question": "발표 때 다른 사람 얼굴 나온 화면 캡처해서 블로그에 올려도 돼요?",
+    "category": "dismissal",
+    "expected_tools": [
+      "lookup_dismissal"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "개인 정보",
+        "개인정보"
+      ],
+      [
+        "경고",
+        "옐로",
+        "않도록",
+        "안 됩니다",
+        "안됩니다"
+      ]
+    ],
+    "forbid": [
+      "모자이크하면 괜찮",
+      "허락 없이도",
+      "즉시 제적",
+      "바로 제적",
+      "무조건 제적",
+      "제적됩니다"
+    ],
+    "source": [
+      "08_훈련_참여_규칙 > 참여 규칙의 내용",
+      "07_제적_가이드 > 3. 훈련생 경고 사유 : 옐로 카드"
+    ],
+    "note": "참여 규칙 6번(개인 정보 유출 주의)과 옐로카드 사유이며, 문서에 없는 '모자이크면 괜찮다'를 지어내면 안 된다."
+  },
+  {
+    "id": "Q024",
+    "split": "eval",
+    "question": "제적 사유 생기면 바로 그날 제적되는 거예요?",
+    "category": "dismissal",
+    "expected_tools": [
+      "lookup_dismissal"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "다음 날",
+        "다음날"
+      ]
+    ],
+    "forbid": [
+      "당일 제적됩니다",
+      "다음 단위기간부터",
+      "한 달 뒤"
+    ],
+    "source": [
+      "07_제적_가이드 > 1. 훈련생 제적 조치 근거"
+    ],
+    "note": "운영규정 제35조 1항은 '사유발생일의 다음 날'에 제적한다고 적고 있다."
+  },
+  {
+    "id": "Q025",
+    "split": "fewshot",
+    "question": "LMS 주소 뭐예요? 검색해서 들어가니까 화면이 깨져요",
+    "category": "learning",
+    "expected_tools": [
+      "lookup_learning"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "learn.modulabs.co.kr"
+      ]
+    ],
+    "forbid": [
+      "lms.aiffel.io로 접속하",
+      "lms.aiffel.io에서 로그인"
+    ],
+    "source": [
+      "14_New_LMS_온보딩_가이드_(아이펠_그루용) > 1️⃣ 로그인 주소 안내"
+    ],
+    "note": "검색하면 이전 시스템 lms.aiffel.io로 가기 쉬워 올바른 주소를 안내하는지 본다."
+  },
+  {
+    "id": "Q026",
+    "split": "fewshot",
+    "question": "공부하다 모르는 거 생기면 어디에 질문해요?",
+    "category": "learning",
+    "expected_tools": [
+      "lookup_learning"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "구글"
+      ],
+      [
+        "꿀팁-궁금하지"
+      ]
+    ],
+    "forbid": [
+      "카톡",
+      "오픈채팅"
+    ],
+    "source": [
+      "10_질문하는_순서와_방법 > 질문하는 순서"
+    ],
+    "note": "구글 검색 → 그룹원 → 디스코드 #꿀팁-궁금하지 순서를 보여주는 예시다."
+  },
+  {
+    "id": "Q027",
+    "split": "eval",
+    "question": "디스코드 닉네임 어떻게 바꿔야 돼요?",
+    "category": "learning",
+    "expected_tools": [
+      "lookup_learning"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "AI에이전트2기/이름/지역"
+      ]
+    ],
+    "forbid": [
+      "AI에이전트1기",
+      "프데분"
+    ],
+    "source": [
+      "02_AI_에이전트_훈련_정보 > [하위 페이지] 툴 세팅",
+      "CONFLICTS #8"
+    ],
+    "note": "MAPPING 경계 예시이며, 11 툴 가이드에 남은 1기·프데분 형식이 함정이다."
+  },
+  {
+    "id": "Q028",
+    "split": "eval",
+    "question": "젭이랑 디코에서 이름 형식 뭐로 맞춰놔야 함?",
+    "category": "learning",
+    "expected_tools": [
+      "lookup_learning"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "AI에이전트2기/이름/지역"
+      ]
+    ],
+    "forbid": [
+      "AI에이전트1기",
+      "프데분"
+    ],
+    "source": [
+      "02_AI_에이전트_훈련_정보 > [하위 페이지] 툴 세팅",
+      "CONFLICTS #8"
+    ],
+    "note": "앞 문항의 바꿔 말하기 쌍으로, ZEP까지 포함해 같은 2기 형식을 답하는지 본다."
+  },
+  {
+    "id": "Q029",
+    "split": "eval",
+    "question": "노드 코드 그대로 블로그에 올렸다가 걸리면 바로 제적이에요?",
+    "category": "learning",
+    "expected_tools": [
+      "lookup_learning",
+      "lookup_dismissal"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "구두 권고",
+        "권고"
+      ],
+      [
+        "비밀유지서약서"
+      ]
+    ],
+    "forbid": [
+      "즉시 제적",
+      "바로 제적됩니다",
+      "출처만 밝히면"
+    ],
+    "source": [
+      "12_모두의연구소_노드_저작권_안내 > 침해에 대한 구제",
+      "12_모두의연구소_노드_저작권_안내 > 저작권 침해에 관한 제재",
+      "08_훈련_참여_규칙 > 참여 규칙의 적용"
+    ],
+    "note": "핵심은 12(구두 권고 수용 시 제재 없음, 제재는 비밀유지서약서)이고 제적 여부 확인에 07·08도 필요하며, '출처만 밝히면 된다'는 통념이 함정이다."
+  },
+  {
+    "id": "Q030",
+    "split": "eval",
+    "question": "LMS 들어가니까 '아이펠 노트북이 아닙니다'라고 떠요 ㅠ",
+    "category": "learning",
+    "expected_tools": [
+      "lookup_learning"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "퍼실",
+        "운영매니저"
+      ],
+      [
+        "다른 기기",
+        "쿠키",
+        "캐시",
+        "익스텐션"
+      ]
+    ],
+    "forbid": [
+      "cs@modulabs.co.kr"
+    ],
+    "source": [
+      "13_자주하는_질문 > [하위 페이지] <참고> “아이펠 노트북이 아닙니다”"
+    ],
+    "note": "원인(기기 변경·쿠키 삭제·익스텐션)과 퍼실/운영매니저 연락을 안내해야 하며, 14에 나온 발신 메일 주소를 문의처로 착각하기 쉽다."
+  },
+  {
+    "id": "Q031",
+    "split": "eval",
+    "question": "나의 도메인 개발하기 페이지는 어디에 복사해 두는 거예요? 이거 학습 점수에도 들어가요?",
+    "category": "learning",
+    "expected_tools": [
+      "lookup_learning"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "개인 페이지"
+      ],
+      [
+        "퍼실",
+        "운영매니저",
+        "매니저",
+        "운영진"
+      ]
+    ],
+    "forbid": [
+      "학습 점수에 반영됩니다",
+      "점수에 포함됩니다"
+    ],
+    "source": [
+      "18_나의_도메인_개발하기",
+      "02_AI_에이전트_훈련_정보"
+    ],
+    "note": "복사 위치는 18에 있지만 점수 반영 여부는 어느 문서에도 없어 퍼실/매니저 확인을 안내해야 한다."
+  },
+  {
+    "id": "Q032",
+    "split": "eval",
+    "question": "도메인 로드맵은 한 번 쓰면 끝이에요? 언제 다시 고쳐 써야 하는지 날짜로도 알려주세요",
+    "category": "learning",
+    "expected_tools": [
+      "lookup_learning",
+      "lookup_schedule"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "M08",
+        "에이전트 해커톤",
+        "해커톤 후"
+      ],
+      [
+        "수료"
+      ],
+      [
+        "11-16",
+        "11-24",
+        "11-25",
+        "11월"
+      ]
+    ],
+    "forbid": [
+      "매주 갱신",
+      "매달 갱신",
+      "매월 갱신"
+    ],
+    "source": [
+      "18_나의_도메인_개발하기 > [하위 페이지] 도메인 로드맵 - 나는 어떤 전문가인가",
+      "03_AI_에이전트_2기_커리큘럼 > 에이전트 실전 프로젝트"
+    ],
+    "note": "갱신 시점(M08 해커톤 후·수료 시)은 18에, 그 날짜(11월 중순~하순)는 03에 있어 두 도구가 필요하다."
+  },
+  {
+    "id": "Q033",
+    "split": "fewshot",
+    "question": "우리 과정 훈련 기간이 언제부터 언제까지예요?",
+    "category": "schedule",
+    "expected_tools": [
+      "lookup_schedule"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "2026.08.26",
+        "2026-08-26",
+        "26.08.26",
+        "8월 26일"
+      ],
+      [
+        "2027.02.19",
+        "2027-02-19",
+        "27.02.19",
+        "2월 19일"
+      ]
+    ],
+    "forbid": [
+      "2027.03",
+      "2027-03"
+    ],
+    "source": [
+      "02_AI_에이전트_훈련_정보 > 과정 정보"
+    ],
+    "note": "훈련 기간 2026.08.26~2027.02.19(120일)를 보여주는 기본 예시다."
+  },
+  {
+    "id": "Q034",
+    "split": "fewshot",
+    "question": "에이전트 실전 프로젝트는 언제 시작해요?",
+    "category": "schedule",
+    "expected_tools": [
+      "lookup_schedule"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "11-11",
+        "11월 11일",
+        "11/11"
+      ],
+      [
+        "변동"
+      ]
+    ],
+    "forbid": [
+      "12-21",
+      "12월 21일"
+    ],
+    "source": [
+      "03_AI_에이전트_2기_커리큘럼 > 모듈 한눈에 보기"
+    ],
+    "note": "커리큘럼 날짜를 답할 때 '일정은 변동될 수 있음'을 붙이는 형식을 보여주는 예시다."
+  },
+  {
+    "id": "Q035",
+    "split": "eval",
+    "question": "수료하려면 출석률 몇 % 넘어야 돼요?",
+    "category": "schedule",
+    "expected_tools": [
+      "lookup_schedule"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "80%",
+        "80퍼센트"
+      ]
+    ],
+    "forbid": [
+      "70%",
+      "90%",
+      "2/3"
+    ],
+    "source": [
+      "02_AI_에이전트_훈련_정보 > AI 에이전트 2기 수료 / 졸업 기준"
+    ],
+    "note": "MAPPING 경계 예시로, 출결 단어가 있어도 수료 기준은 schedule이다."
+  },
+  {
+    "id": "Q036",
+    "split": "eval",
+    "question": "며칠 이상 출석해야 수료 인정되나요?",
+    "category": "schedule",
+    "expected_tools": [
+      "lookup_schedule"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "80%",
+        "80퍼센트"
+      ],
+      [
+        "120일"
+      ]
+    ],
+    "forbid": [
+      "70%",
+      "90%"
+    ],
+    "source": [
+      "02_AI_에이전트_훈련_정보 > AI 에이전트 2기 수료 / 졸업 기준",
+      "04_출결에_대하여 > 👀 중요사항 한 눈에 보기"
+    ],
+    "note": "앞 문항의 바꿔 말하기 쌍으로, 총 120일 중 80%라는 같은 기준을 답하는지 본다."
+  },
+  {
+    "id": "Q037",
+    "split": "eval",
+    "question": "수료랑 졸업이 다른 거예요? 졸업 조건이 뭐예요?",
+    "category": "schedule",
+    "expected_tools": [
+      "lookup_schedule"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "학습 점수"
+      ],
+      [
+        "50%",
+        "50퍼센트"
+      ],
+      [
+        "80%",
+        "수료 출석률"
+      ]
+    ],
+    "forbid": [
+      "60%",
+      "70%"
+    ],
+    "source": [
+      "02_AI_에이전트_훈련_정보 > AI 에이전트 2기 수료 / 졸업 기준"
+    ],
+    "note": "졸업은 수료 출석률 + 학습 점수 50% 이상이라는, 수료와 별개인 기준을 아는지 본다."
+  },
+  {
+    "id": "Q038",
+    "split": "eval",
+    "question": "점심시간 몇 시부터 몇 시까지예요?",
+    "category": "schedule",
+    "expected_tools": [
+      "lookup_schedule"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "12:50"
+      ],
+      [
+        "14:00"
+      ]
+    ],
+    "forbid": [
+      "13:00"
+    ],
+    "source": [
+      "00_메인_공지 > 기본 시간표",
+      "CONFLICTS #4"
+    ],
+    "note": "02 훈련 정보의 13:00~14:00은 확정에서 밀린 값이라 12:50을 답해야 한다."
+  },
+  {
+    "id": "Q039",
+    "split": "eval",
+    "question": "바이브코딩 해커톤 언제 해요?",
+    "category": "schedule",
+    "expected_tools": [
+      "lookup_schedule"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "09-28",
+        "9월 28일",
+        "9/28"
+      ],
+      [
+        "변동"
+      ]
+    ],
+    "forbid": [
+      "11-16",
+      "11월 16일"
+    ],
+    "source": [
+      "03_AI_에이전트_2기_커리큘럼 > 바이브코딩 해커톤 (5일)"
+    ],
+    "note": "날짜와 함께 일정 변동 가능성을 밝혀야 하며, 18의 'M08 에이전트 해커톤'(11월)과 헷갈리기 쉽다."
+  },
+  {
+    "id": "Q040",
+    "split": "eval",
+    "question": "11월 3일 기준으로 지금 단위기간은 언제 끝나요?",
+    "category": "schedule",
+    "expected_tools": [
+      "lookup_schedule"
+    ],
+    "should_escalate": false,
+    "must": [
+      [
+        "11-25",
+        "11월 25일"
+      ],
+      [
+        "10-26",
+        "10월 26일"
+      ]
+    ],
+    "forbid": [
+      "11-30",
+      "11월 30일",
+      "10-31"
+    ],
+    "source": [
+      "02_AI_에이전트_훈련_정보 > 단위기간"
+    ],
+    "note": "단위기간은 달력의 한 달이 아니라 26일~25일 단위라 '11월 30일'이 그럴듯한 오답이다."
+  },
+  {
+    "id": "Q041",
+    "split": "fewshot",
+    "question": "제 지금까지 출석률 몇 %예요?",
+    "category": "out_of_scope",
+    "expected_tools": [
+      "escalate_to_staff"
+    ],
+    "should_escalate": true,
+    "must": [
+      [
+        "운영진",
+        "운영매니저",
+        "매니저"
+      ]
+    ],
+    "forbid": [
+      "현재 출석률은",
+      "님의 출석률은"
+    ],
+    "source": [],
+    "note": "개인 출결 기록은 문서에 없으므로 숫자를 지어내지 말고 운영진에게 넘기는 예시다."
+  },
+  {
+    "id": "Q042",
+    "split": "fewshot",
+    "question": "오늘 점심 뭐 먹을까요 추천 좀요",
+    "category": "out_of_scope",
+    "expected_tools": [],
+    "should_escalate": false,
+    "must": [
+      [
+        "2기"
+      ]
+    ],
+    "forbid": [
+      "김치찌개",
+      "짜장면",
+      "추천드려요"
+    ],
+    "source": [],
+    "note": "잡담은 이관 없이 정중히 범위 밖임을 알리고 도울 수 있는 주제(출결·장려금 등)로 돌리는 예시다. (11/3 현준님: \"AI 에이전트 2기 관련 질문만 답변드릴 수 있어요\" 식 안내가 정답)"
+  },
+  {
+    "id": "Q043",
+    "split": "eval",
+    "question": "이번 단위기간에 제 장려금 얼마 들어오는지 계산해 주세요",
+    "category": "out_of_scope",
+    "expected_tools": [
+      "escalate_to_staff"
+    ],
+    "should_escalate": true,
+    "must": [
+      [
+        "운영진",
+        "운영매니저",
+        "매니저",
+        "개별 문자"
+      ]
+    ],
+    "forbid": [
+      "400,000원",
+      "40만원",
+      "40만 원"
+    ],
+    "source": [],
+    "note": "개인 출석일수·고용형태가 필요한 개인 기록 조회라 이관이 정답이며, 20일×2만원 같은 금액을 단정하면 안 된다."
+  },
+  {
+    "id": "Q044",
+    "split": "eval",
+    "question": "지난주에 낸 공가 신청 승인 났어요?",
+    "category": "out_of_scope",
+    "expected_tools": [
+      "escalate_to_staff"
+    ],
+    "should_escalate": true,
+    "must": [
+      [
+        "운영진",
+        "운영매니저",
+        "매니저"
+      ]
+    ],
+    "forbid": [
+      "승인되었습니다",
+      "승인 완료"
+    ],
+    "source": [],
+    "note": "개인 공가 처리 상태는 문서로 알 수 없어 운영진에게 넘겨야 한다."
+  },
+  {
+    "id": "Q045",
+    "split": "eval",
+    "question": "수료증은 언제 어디서 발급받아요?",
+    "category": "out_of_scope",
+    "expected_tools": [
+      "escalate_to_staff"
+    ],
+    "should_escalate": true,
+    "must": [
+      [
+        "운영진",
+        "운영매니저",
+        "매니저"
+      ]
+    ],
+    "forbid": [
+      "HRD-Net에서 출력",
+      "고용24에서 출력",
+      "HRD-Net에서 발급",
+      "고용24에서 발급"
+    ],
+    "source": [],
+    "note": "수료 주제지만 발급 방법은 어느 문서에도 없어 이관이 정답이고, 'HRD-Net/고용24에서 출력'이 그럴듯한 상식 오답이다."
+  },
+  {
+    "id": "Q046",
+    "split": "eval",
+    "question": "과정 중간에 그만두면 위약금 같은 거 있어요?",
+    "category": "out_of_scope",
+    "expected_tools": [
+      "escalate_to_staff"
+    ],
+    "should_escalate": true,
+    "must": [
+      [
+        "운영진",
+        "운영매니저",
+        "매니저"
+      ]
+    ],
+    "forbid": [
+      "위약금은 없",
+      "위약금이 없",
+      "자비부담금"
+    ],
+    "source": [],
+    "note": "중도 포기 규정은 문서에 없어 이관해야 하며, 내일배움카드 일반 상식으로 답하기 쉽다."
+  },
+  {
+    "id": "Q047",
+    "split": "eval",
+    "question": "내일 서울 날씨 어때요?",
+    "category": "out_of_scope",
+    "expected_tools": [],
+    "should_escalate": false,
+    "must": [
+      [
+        "2기"
+      ]
+    ],
+    "forbid": [
+      "맑음",
+      "흐림",
+      "기온은"
+    ],
+    "source": [],
+    "note": "과정과 무관한 질문으로, 이관 없이 범위 밖 안내만 해야 한다. (11/3 현준님: \"AI 에이전트 2기 관련 질문만 답변드릴 수 있어요\" 식 안내가 정답)"
+  },
+  {
+    "id": "Q048",
+    "split": "eval",
+    "question": "요즘 엔비디아 주식 사도 될까요?",
+    "category": "out_of_scope",
+    "expected_tools": [],
+    "should_escalate": false,
+    "must": [
+      [
+        "2기"
+      ]
+    ],
+    "forbid": [
+      "매수하셔도",
+      "사셔도 됩니다",
+      "추천드립니다"
+    ],
+    "source": [],
+    "note": "무관한 요청에 투자 조언을 하지 않고 범위 밖으로 안내하는지 본다. (11/3 현준님: \"AI 에이전트 2기 관련 질문만 답변드릴 수 있어요\" 식 안내가 정답)"
+  }
+]
