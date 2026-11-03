@@ -1,0 +1,182 @@
+{
+  "Q003": {
+    "category": "attendance",
+    "confidence": 0.99,
+    "reason": "병원 진료로 인한 조퇴의 공가·공결 인정 여부와 출결 기준이 핵심인 질문입니다."
+  },
+  "Q004": {
+    "category": "attendance",
+    "confidence": 0.99,
+    "reason": "진료비 영수증 제출과 병가·공가 인정 여부는 공가 신청 및 증빙 규정에 해당합니다."
+  },
+  "Q005": {
+    "category": "attendance",
+    "confidence": 0.99,
+    "reason": "공가 신청 시점과 당일 긴급 상황 처리 기준은 출결·공가 규정에 해당합니다."
+  },
+  "Q006": {
+    "category": "attendance",
+    "confidence": 0.99,
+    "reason": "지각 횟수와 결석 환산 기준은 출결 규정에 해당합니다."
+  },
+  "Q007": {
+    "category": "attendance",
+    "confidence": 0.99,
+    "reason": "예비군 훈련일의 공가 신청과 증빙 서류는 공가·휴가 규정에 해당합니다."
+  },
+  "Q008": {
+    "category": "attendance",
+    "confidence": 0.98,
+    "reason": "단위기간 내 휴가 사용 및 다음 달 휴가 선사용 가능 여부는 휴가·공가 신청 규정에 해당합니다."
+  },
+  "Q011": {
+    "category": "allowance",
+    "confidence": 0.99,
+    "reason": "훈련장려금의 지급 금액을 묻는 질문입니다."
+  },
+  "Q012": {
+    "category": "allowance",
+    "confidence": 0.98,
+    "reason": "출석 일수에 따른 훈련장려금 지급 금액을 묻는 질문이다."
+  },
+  "Q013": {
+    "category": "allowance",
+    "confidence": 0.98,
+    "reason": "단위기간의 출석일수에 따른 훈련장려금 지급 기준을 묻고 있다."
+  },
+  "Q014": {
+    "category": "allowance",
+    "confidence": 0.99,
+    "reason": "아르바이트 신고 및 미신고 시 제적·환수 등 불이익은 고용형태와 장려금 안내에 해당합니다."
+  },
+  "Q015": {
+    "category": "allowance",
+    "confidence": 0.99,
+    "reason": "내일배움카드 발급 당시와 현재의 고용형태 차이를 신고해야 하는 기한을 묻고 있어 고용형태 안내에 해당합니다."
+  },
+  "Q016": {
+    "category": "allowance",
+    "confidence": 0.98,
+    "reason": "국민취업지원제도 지원금과 훈련장려금의 중복 수급 가능 여부는 훈련장려금 및 지원금 지급 기준에 해당합니다."
+  },
+  "Q019": {
+    "category": "dismissal",
+    "confidence": 0.98,
+    "reason": "결석 횟수에 따른 제적 여부와 지각의 제적 기준 포함 여부처럼 참여 규칙 위반의 결과를 묻고 있습니다."
+  },
+  "Q020": {
+    "category": "dismissal",
+    "confidence": 0.99,
+    "reason": "결석이 누적될 때의 결과와 불이익을 묻는 질문입니다."
+  },
+  "Q021": {
+    "category": "dismissal",
+    "confidence": 0.99,
+    "reason": "경고 누적에 따른 제적 여부는 제적·참여규칙 문서의 내용이다."
+  },
+  "Q022": {
+    "category": "dismissal",
+    "confidence": 0.98,
+    "reason": "운영진에게 알리지 않은 자리 이탈에 따른 경고 여부는 참여 규칙 위반과 경고(옐로카드) 기준에 해당합니다."
+  },
+  "Q023": {
+    "category": "learning",
+    "confidence": 0.95,
+    "reason": "블로그 게시와 발표 화면 캡처, 타인의 얼굴 공개 여부에 관한 질문으로 학습생활의 노드 저작권·블로그 안내에 해당합니다."
+  },
+  "Q024": {
+    "category": "dismissal",
+    "confidence": 0.98,
+    "reason": "제적 사유 발생 후 실제 제적 처리 시점과 절차를 묻는 질문으로, 제적·참여규칙에 해당합니다."
+  },
+  "Q027": {
+    "category": "learning",
+    "confidence": 0.99,
+    "reason": "디스코드 닉네임 변경은 툴 사용 및 닉네임 규칙 안내에 해당합니다."
+  },
+  "Q028": {
+    "category": "learning",
+    "confidence": 0.99,
+    "reason": "ZEP과 디스코드의 닉네임·이름 형식은 툴 사용 및 닉네임 안내에 해당합니다."
+  },
+  "Q029": {
+    "category": "dismissal",
+    "confidence": 0.78,
+    "reason": "노드 코드를 블로그에 게시하는 행위 자체보다, 해당 규정 위반 시 제적되는지라는 제재·결과를 묻고 있어 dismissal에 해당합니다."
+  },
+  "Q030": {
+    "category": "learning",
+    "confidence": 0.98,
+    "reason": "LMS 접속 중 발생한 오류 메시지와 관련된 툴 사용 문제이므로 학습생활에 해당합니다."
+  },
+  "Q031": {
+    "category": "learning",
+    "confidence": 0.99,
+    "reason": "‘나의 도메인 개발하기’ 페이지 복사 위치와 학습 점수 반영 여부는 학습생활 안내에 해당합니다."
+  },
+  "Q032": {
+    "category": "learning",
+    "confidence": 0.86,
+    "reason": "나의 도메인 개발하기에서 도메인 로드맵 작성·수정 방법을 묻는 질문이다."
+  },
+  "Q035": {
+    "category": "schedule",
+    "confidence": 0.99,
+    "reason": "수료 기준에 필요한 출석률은 과정의 수료·일정 정보에 해당합니다."
+  },
+  "Q036": {
+    "category": "schedule",
+    "confidence": 0.98,
+    "reason": "수료 인정에 필요한 출석 기준은 수료·졸업 기준과 관련된 일정 문서에 해당합니다."
+  },
+  "Q037": {
+    "category": "schedule",
+    "confidence": 0.99,
+    "reason": "수료·졸업의 차이와 졸업 조건은 과정의 수료·졸업 기준 및 일정에 관한 질문입니다."
+  },
+  "Q038": {
+    "category": "schedule",
+    "confidence": 0.99,
+    "reason": "점심시간은 과정의 시간표와 일정에 해당합니다."
+  },
+  "Q039": {
+    "category": "schedule",
+    "confidence": 0.99,
+    "reason": "해커톤 개최 시점은 과정 일정에 해당합니다."
+  },
+  "Q040": {
+    "category": "schedule",
+    "confidence": 0.98,
+    "reason": "현재 단위기간의 종료 시점을 묻는 일정 관련 질문이다."
+  },
+  "Q043": {
+    "category": "out_of_scope",
+    "confidence": 0.99,
+    "reason": "본인의 특정 단위기간 장려금 지급액 계산은 개인 기록·처리 결과 조회에 해당해 문서만으로 답할 수 없습니다."
+  },
+  "Q044": {
+    "category": "out_of_scope",
+    "confidence": 0.99,
+    "reason": "본인이 제출한 공가 신청의 승인 여부는 개인 처리 결과 조회에 해당해 문서로 답할 수 없습니다."
+  },
+  "Q045": {
+    "category": "schedule",
+    "confidence": 0.97,
+    "reason": "수료증 발급 시점과 방법은 수료·졸업 및 과정 일정에 관한 내용이다."
+  },
+  "Q046": {
+    "category": "dismissal",
+    "confidence": 0.78,
+    "reason": "과정 중도 포기에 따른 제적·참여 종료 및 불이익 여부를 묻는 질문이므로 제적·참여규칙 범주에 해당합니다."
+  },
+  "Q047": {
+    "category": "out_of_scope",
+    "confidence": 1.0,
+    "reason": "훈련 문서로 답할 수 없는 일반적인 날씨 질문입니다."
+  },
+  "Q048": {
+    "category": "out_of_scope",
+    "confidence": 1.0,
+    "reason": "훈련 과정의 출결·장려금·학습·일정 등 문서 범위와 무관한 투자 질문입니다."
+  }
+}
