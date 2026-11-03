@@ -1,0 +1,27 @@
+[jev 버전 전체 파이프라인]
+문항 36개
+  분류 정확도   0.917   macro F1 0.913
+  도구 호출 적절성 0.806
+  답변 적절성     0.806
+
+혼동 행렬 (행 = 정답, 열 = 예측)
+              attend allowa dismis learni schedu out_of
+   attendance      6      0      0      0      0      0
+    allowance      0      6      0      0      0      0
+    dismissal      0      0      5      1      0      0
+     learning      0      0      0      6      0      0
+     schedule      0      0      0      0      6      0
+ out_of_scope      0      0      1      0      1      4
+
+틀린 문항 9개
+  Q003 (attendance): 도구 불일치; 빠진 사실 공결/출석 인정/출석인정 | 진료확인서/통원확인서/처방전/진단서
+  Q004 (attendance): 도구 불일치; 빠진 사실 불가/안 됩니다/안됩니다/인정되지 않/처리되지 않/안 돼/안돼 | 진료확인서/통원확인서/처방전/진단서/입/퇴원확인서
+  Q016 (allowance): 도구 불일치; 빠진 사실 중복 수급 가능/중복 수급이 가능/같이 받을 수 있/함께 받을 수 있
+  Q023 (dismissal): 도구 불일치; 빠진 사실 개인 정보/개인정보 | 경고/옐로/않도록/안 됩니다/안됩니다/안 돼/안돼
+  Q029 (learning): 빠진 사실 비밀유지서약서
+  Q032 (learning): 도구 불일치; 빠진 사실 11-16/11-24/11-25/11월
+  Q036 (schedule): 빠진 사실 120일
+  Q045 (out_of_scope): 도구 불일치
+  Q046 (out_of_scope): 도구 불일치
+
+결과 저장: data\runs\full_jev.json
