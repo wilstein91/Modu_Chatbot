@@ -56,6 +56,16 @@ class RouteDecision(BaseModel):
     reason: str = Field(description="고른 이유 한 문장")
 
 
+# 넘기기 임계값: 현준님 결정 (2026-11-03). 평가용 36문항의 확신도 표를 보고 정한 값이라
+# 평가 점수가 실제보다 조금 좋게 나올 수 있다 (REPORT에 한계로 적는다).
+CONFIDENCE_THRESHOLD = 0.8
+
+
+def gate(decision):
+    """카테고리 고르기와 따로, 넘길지만 정한다. 확신도가 임계값 미만이면 운영진 이관."""
+    return "escalate" if decision.confidence < CONFIDENCE_THRESHOLD else "answer"
+
+
 def make_llm_router():
     from langchain_openai import ChatOpenAI
 
