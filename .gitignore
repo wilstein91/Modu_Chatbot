@@ -11,3 +11,6 @@ __pycache__/
 
 # Claude 보조 도구(OMC) 작업 상태 — 개인용
 .omc/
+
+# 새 폴더 실행 시험용 임시 clone
+_ct/

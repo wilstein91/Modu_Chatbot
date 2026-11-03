@@ -44,8 +44,14 @@ class State(TypedDict):
 
 _route = None
 # gpt-5.6-terra는 도구 호출을 Responses API에서만 받는다 (chat/completions는 400 오류).
-_llm = ChatOpenAI(model=ANSWER_MODEL, temperature=0, use_responses_api=True)
-_llm_auto = _llm.bind_tools(ALL_TOOLS)
+_llm = None
+
+
+def answer_llm():
+    """처음 쓸 때 만든다 — 키가 없어도 모듈을 불러올 수는 있게 (채점기·검사만 돌릴 때)."""
+    global _llm
+    _llm = _llm or ChatOpenAI(model=ANSWER_MODEL, temperature=0, use_responses_api=True)
+    return _llm
 
 
 def classify(state):
@@ -109,9 +115,9 @@ def agent(state):
         lookup = LOOKUP_TOOLS.get(state["category"])
         # 첫 호출: 카테고리 조회 도구를 코드로 강제한다 (프롬프트는 요청일 뿐 보장이 아니다).
         # 범위 밖은 강제하지 않는다 — 잡담이면 도구 없이, 본인 기록이면 escalate_to_staff를 고르게 둔다.
-        llm = _llm.bind_tools(ALL_TOOLS, tool_choice=lookup.name) if lookup else _llm_auto
+        llm = answer_llm().bind_tools(ALL_TOOLS, tool_choice=lookup.name if lookup else None)
         return {"messages": msgs + [llm.invoke(msgs)]}
-    return {"messages": [_llm_auto.invoke(msgs)]}
+    return {"messages": [answer_llm().bind_tools(ALL_TOOLS).invoke(msgs)]}
 
 
 def build(classify=classify, after_classify=after_classify, verify=verify):
