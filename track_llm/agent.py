@@ -27,7 +27,9 @@ from track_llm.prompts import ANSWER_SYSTEM
 from track_llm.router import CONFIDENCE_THRESHOLD, make_llm_router
 
 ANSWER_MODEL = os.getenv("ANSWER_MODEL", "gpt-5.6-terra")
-RECURSION_LIMIT = 10  # agent ↔ tools가 끝없이 돌지 않게
+# agent ↔ tools가 끝없이 돌지 않게. 다시 쓰기 1회가 들어가면 정상 경로도 10단계를 넘으므로 20
+# (전체 평가에서 Q003·Q046이 10에 걸려 오류로 멈춘 것을 보고 올림, 2026-11-03)
+RECURSION_LIMIT = 20
 
 
 class State(TypedDict):

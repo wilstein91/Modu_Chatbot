@@ -1,0 +1,27 @@
+[llm 버전 전체 파이프라인]
+문항 36개
+  분류 정확도   0.944   macro F1 0.944
+  도구 호출 적절성 0.806
+  답변 적절성     0.833
+
+혼동 행렬 (행 = 정답, 열 = 예측)
+              attend allowa dismis learni schedu out_of
+   attendance      6      0      0      0      0      0
+    allowance      0      6      0      0      0      0
+    dismissal      0      0      5      1      0      0
+     learning      0      0      0      6      0      0
+     schedule      0      0      0      0      6      0
+ out_of_scope      0      0      0      0      1      5
+
+틀린 문항 9개
+  Q003 (attendance): 도구 불일치
+  Q008 (attendance): 빠진 사실 당겨쓰기 불가/불가/안 됩니다/안됩니다/쓸 수 없/안 돼/안돼
+  Q022 (dismissal): 빠진 사실 20분
+  Q023 (dismissal): 도구 불일치; 빠진 사실 개인 정보/개인정보 | 경고/옐로/않도록/안 됩니다/안됩니다/안 돼/안돼
+  Q029 (learning): 도구 불일치
+  Q032 (learning): 도구 불일치; 빠진 사실 11-16/11-24/11-25/11월
+  Q043 (out_of_scope): 도구 불일치; 빠진 사실 운영진/운영매니저/매니저/개별 문자
+  Q044 (out_of_scope): 도구 불일치; 빠진 사실 운영진/운영매니저/매니저
+  Q045 (out_of_scope): 도구 불일치
+
+결과 저장: data\runs\full_llm.json
