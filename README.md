@@ -62,14 +62,14 @@ Project_CSC/
 
 ## 실행 방법
 
-**1. 설치** (Python 3.13에서 확인)
+**1. 설치** (Python 3.13·3.14에서 확인)
 
 ```bash
 python -m venv .venv
 .venv/Scripts/python.exe -m pip install -r requirements.txt
 ```
 
-macOS·Linux는 `.venv/Scripts/python.exe` 대신 `.venv/bin/python`.
+macOS·Linux는 `.venv/Scripts/python.exe` 대신 `.venv/bin/python`. Windows에서 아주 깊은 폴더에 받으면 streamlit 설치 중 경로 길이 오류가 날 수 있으니 짧은 경로(예: `C:\work\`)에 받는다.
 
 **2. 키 넣기** — 프로젝트 폴더에 `.env` 파일을 만들고 두 줄을 적는다 (저장소에 올리지 않음).
 
